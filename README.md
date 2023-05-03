@@ -14,3 +14,16 @@ Packages are built for :
 * Mac (Apple Mx based = arm64)
 
 See the Users Guide in the docs folder for more information.
+
+# Building the Editor
+
+The application uses node.js and the electron toolkit. See the scripts folder for basic info.
+Requires nvm, npm and a C compiler for the MIDI functions.
+
+You need to copy the relevant package.json.xxx to package.json for your OS.
+
+After installing nvm, node, and npm run :
+
+* npm i   - to download and build all dependencies
+* npm run start    - to validate the build and run the application
+* npm run release  - to build setup / pkg install media
