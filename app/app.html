@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Ge0sync Sequence Editor</title>
+
+    <link rel="stylesheet" href="stylesheets/main.css">
+
+</head>
+<body>
+
+<div id="main-header">Ge0sync Sequence Editor</div>
+<div><label class="black" id="version">version</label></div>
+
+<div><p>&nbsp;</p></div>
+
+<div id="content">
+
+<div>
+    
+<section id="app-settings">
+    <header>Application Settings</header>
+    <table class="purple-bg">
+    <tr id="portselect">
+        <td>
+            <label>Local MIDI Out Interface</label>
+        </td>
+        <td>
+        <td>
+            <select id="portselect">
+            </select>
+        </td>
+    </tr>
+    </table>
+</section>
+
+<section id="test-comms">
+    
+    <span>
+        <button id="testComms">Test Comms</button>
+    </span>
+
+    <span id="test_result">
+        <div class="result"></div>
+    </span>
+
+</section>
+
+<div><p>&nbsp;</p></div>
+
+<section id="device-settings">
+    <header>Global Device Settings</header>
+    
+    <table class="purple-bg">
+    <tr>
+        <td>
+              <label>Device MIDI In Channel</label><br>
+        </td>
+        <td>
+              <input class="twpdigit" type="number" min="0" max="16" value="0"/>
+        </td>
+        <td>
+            <em>( Default 0 = OMNI )</em>
+        </td>
+    </tr>
+    
+    <tr>
+        <td>
+            <label>MIDI Note Priority</label>
+        </td>
+        <td>
+            <select class="note_p">
+                <option value="0" selected>Last Note</option>
+                <option value="1">Top Note</option>
+                <option value="2">Bottom Note</option>
+            </select>
+        </td>
+        <td>
+            <em>( Default = Last )</em>
+        </td>
+    </tr>
+    
+    <tr>
+        <td>
+            <label>MIDI CC to send to Mod Output</label>
+        </td>
+        <td>
+            <input class="threedigit" type="number" min="1" max="126" value="1">
+        </td>
+        <td>
+            <em>( Default = 1 - Mod wheel CC )</em>
+        </td>
+
+    <tr>
+        <td>
+            <label>CV Clock PPQN Input</label>
+        </td>
+        <td>
+            <select class="ppqn">
+                <option value="4" selected>4 (1 pulse per step)</option>
+                <option value="8">8 (2 pulses per step)</option>
+                <option value="12">12 (3 pulses per step)</option>
+                <option value="16">16 (4 pulses per step)</option>
+                <option value="20">20 (5 pulses per step)</option>
+                <option value="24">24 (6 pulses per step)</option>
+                
+            </select>
+        </td>
+        <td>
+            <em>( Default = 4 - Clock in 'trigger' for every step )
+        </td>
+    </tr>
+    
+    <tr>
+        <td>
+            <label>CV Clock PPQN Output</label>
+        </td>
+        <td>
+            <select class="ppqn_out">
+                <option value="1">1 (4 steps per pulse)</option>
+                <option value="4" selected>4 (1 step per pulse)</option>
+            </select>
+        </td>
+        <td>
+            <em>( Default = 4 - Clock out 'trigger' for each step )</em>
+        </td>
+    </tr>
+    
+    <tr>
+        <td>
+            <label>Delay after Gate Off (when PPS=1)</label>
+        <td>
+            <input class="twodigit" type="number" min="1" max="10" value="5"> <label>x100 microseconds</label><br>
+        </td>
+        <td>
+            <em>( Note this only applies when using Clock In PPQN = 4, i.e. pulse in per step = 1.<br>
+                This delay is required to ensure the gate signal goes low between steps. )</em>
+        </td>
+    </tr>
+    
+    <tr>
+        <td>
+            <label>Mod Output CV Duration</label>
+        <td>
+            <input class="threedigit" type="number" min="0" max="100" value="0"> <label>x10 milliseconds</label><br>
+        </td>
+        <td>
+            <em>( Default 0 = never turn off, 100 = 1 second duration )</em>
+        </td>
+    </tr>
+    
+    <tr>
+        <td>
+            <label>Trigger Output CV Duration</label>
+        <td>
+            <input class="twodigit" type="number" min="0" max="10" value="2"> <label>x10 milliseconds</label><br>
+        </td>
+        <td>
+            <em>( Default 20ms )</em>
+        </td>
+    </tr>
+    
+    <tr>
+        <td>
+            <label>Clock Output CV Duration</label>
+        <td>
+            <input class="twodigit" type="number" min="0" max="10" value="2"> <label>x10 milliseconds</label><br>
+        </td>
+        <td>
+            <em>( Default 20ms )</em>
+        </td>
+    </tr>
+    
+    
+        
+    </table>
+</section>
+
+
+<section id="device-settings-send">
+    
+            <span>
+                <button id="devset">Send Global Settings to Device</button>
+            </span>
+    
+            <span id="midi_result">
+                <div class="result"></div>
+            </span>
+      
+</section>
+
+<div><p>&nbsp;</p></div>
+
+<hr>
+    
+<div>
+    
+    <section id="seq-settings">
+        <header>Sequence Details</header>
+        <table class="purple-bg">
+            <tr>
+                <td>
+                    <label>Sequence Slide Type</label>
+                </td>
+                <td>
+                    <select class="slide_t">
+                        <option value="6">Full step</option>
+                        <option value="3" selected="selected">Half step</option>
+                        <option value="2">Quarter step</option>
+                    </select>
+                </td>
+            </tr>
+            
+        </table>
+    </section>
+    
+    <section id="steps">
+  <span id="step-container">
+  	<div>
+		<header>1</header>
+		<select class="type">
+			<option value="24" selected="selected">C</option>
+			<option value="25">C#</option>
+			<option value="26">D</option>
+			<option value="27">D#</option>
+			<option value="28">E</option>
+			<option value="29">F</option>
+			<option value="30">F#</option>
+			<option value="31">G</option>
+			<option value="32">G#</option>
+			<option value="33">A</option>
+			<option value="34">A#</option>
+			<option value="35">B</option>
+			<option value="127">STOP</option>
+		</select>
+
+		<select class="octave">
+			<option value="0">Down 2</option>
+			<option value="1">Down</option>
+			<option value="2" selected="selected">Middle</option>
+			<option value="3">Up</option>
+			<option value="4">Up 2</option>
+		</select>
+
+		<select class="length">
+			<option value="6" selected>One Step</option>
+			<option value="12">Two Steps</option>
+			<option value="24">Four Steps</option>
+		</select>
+
+  		<table>
+  			<tr>
+  				<td>
+  					<label></label>
+  				</td>
+  				<td>
+  					<input type="number" />
+  				</td>
+  			</tr>
+  			<tr>
+  				<td>
+  					<label></label>
+  				</td>
+  				<td>
+  					<input type="number" />
+  				</td>
+  			</tr>
+			<tr>
+  				<td>
+  					<label></label>
+  				</td>
+  				<td>
+  					<input type="number" />
+  				</td>
+  			</tr>
+  			
+  		</table>
+     
+  	</div></span></section>
+
+<section id="seq-slot">
+    <header>Device Sequence Tasks</header>
+    
+    <p class="mytext">Select a device slot, then either save the sequence above into that slot, <br>
+        or activate an existing sequence that has previously been saved into a device slot.<br>
+        Only the currently activated sequence will play on the device.</p>
+    
+    <table class="purple-bg">
+        
+        <tr>
+            <td>
+                <label>Device Slot</label>
+            </td>
+            <td>
+                <select>
+                    <option value="1">Slot 1</option>
+                    <option value="2">Slot 2</option>
+                    <option value="3">Slot 3</option>
+                    <option value="4">Slot 4</option>
+                    <option value="5">Slot 5</option>
+                    <option value="6">Slot 6</option>
+                    <option value="7">Slot 7</option>
+                    <option value="8">Slot 8</option>
+                </select>
+            </td>
+        </tr>
+        
+        
+    </table>
+</section>
+
+
+<section id="seq-send">
+    <table class="hidden">
+    <tr cellpadding="0">
+        <td>
+            <button id="send">Send Sequence to Device</button>
+        </td>
+        <td>
+            <button id="activate">Activate existing Sequence</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <span id="wr_result">
+                <div class="result"></div>
+            </span>
+        </td>
+        <td>
+            <span id="av_result">
+                <div class="result"></div>
+            </span>
+        </td>
+    </tr>
+</table>
+</section>
+
+    <section id="loadsafe">
+    <header>Local File Management</header>
+    <br>
+
+      <button id="loadSequence">Load Sequence File</button> <button id="saveSequence">Save Sequence to File</button> <div class="result"></div>
+    </section>
+
+        
+</div>
+
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
