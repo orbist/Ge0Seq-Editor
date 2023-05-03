@@ -1,0 +1,175 @@
+@import url('ibm-plex-sans.css');
+
+body {
+	//background-color: #7328a6;
+	background-image: url("background-repeat.png");
+	background-attachment: fixed;	
+	padding: 0;
+	font-size: 15px;
+	font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+::selection {
+  background: black;
+	color: white;
+}
+
+
+#main-header {
+	font-size: 35px;
+	font-weight:1000;
+	display: inline-block;
+	color: #363636;
+	border-bottom: 5px solid #363636;
+	margin-bottom: 20px;
+	padding-top: 10px;
+	margin-top: -10px;
+	background-color: #dbcbfa;
+}
+section {
+	display:block;
+	height:100%;
+	width:100%;
+	clear:both;
+	margin-bottom: 10px;
+}
+section>header {
+	font-size: 23px;
+	font-weight: 1200;
+	color: #363636;
+	margin-bottom: 12px;
+	display: inline-block;
+	border-bottom: 2px solid #363636;
+	background-color: #dbcbfa;
+}
+#step-container {
+	display: block;
+	align-self: center;
+}
+#step-container div {
+	display: inline-block;
+	vertical-align: top;
+	border: 3px solid #363636;
+	background-color: #7328a6;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	width: 150px;
+	min-height: 106px;
+	padding: 5px;
+	position: relative; /* needed for positioning of header */
+}
+
+#step-container div header {
+	font-size: 30px;
+	font-weight: 700;
+	text-align: left;
+	//position: relative;
+	//right: 5px;
+	//bottom: 3px;
+	color: white;
+}
+#step-container select.type {
+	width: 100%;
+}
+
+#step-container select.octave {
+	width: 100%;
+}
+
+#step-container select.length {
+	width: 100%;
+}
+
+#step-container tr>td:first-of-type {
+	width: 100%;
+}
+.result {
+	display: inline-block;
+	font-weight:600;
+	background: none;
+	color: green;
+}
+.result.error {
+	color: red;
+}
+
+table.hidden {
+	background:none;
+	border: 0px;
+	padding: 0px;
+}
+
+td.hidden {
+	align-self: left;
+}
+
+p.mytext {
+	background-color: #dbcbfa;
+	font-weight:600;
+}
+
+table.purple-bg {
+	//width: 95%;
+	vertical-align: top;
+	background-color: #7328a6;
+	border: 3px solid black;
+	padding: 4px;
+}
+
+
+
+input[type="number"] {
+  width: 32px;
+}
+
+input.2digit[type="number"] {
+  width: 40px;
+}
+
+input.3digit[type="number"] {
+  width: 48px;
+}
+
+//section:not(#steps, #hidden) table {
+//	background-color: #7328a6;
+//	border: 3px solid black;
+//	padding: 4px;
+//}
+
+
+label {
+	color: white;
+	margin-right: 5px;
+}
+
+label.black {
+	color: black;
+	margin-right: 5px;
+}
+
+em {
+    color: white;
+    font-size: 10px;
+}
+
+select, option, input {
+	border: 2px solid #363636;
+	background-color: #8b6ca1;
+	padding: 5px;
+	outline: none;
+	margin: 2px;
+	font-weight: 600;
+	color: white;
+}
+
+button {
+	border: 2px solid #363636;
+	background-color: #7512e6;
+	border-radius: 5px;
+	padding: 5px;
+	//outline: none;
+	margin: 2px;
+	//font-size: 20px;
+	font-weight: 700;
+	color: white;
+}
+
