@@ -1,0 +1,85 @@
+{
+  "name": "ge0sync-seq-editor",
+  "productName": "Ge0sync Sequence Editor",
+  "description": "Setup Ge0sync 16 step sequencer pattern via MIDI",
+  "version": "1.4.0b",
+  "private": true,
+  "author": "Barry Whyte geosync.synth@gmail.com",
+  "copyright": "© 2023 Ge0synchronous Synths",
+  "homepage": "http://geosyncsynth.com",
+  "license": "MIT",
+  "main": "app/background.js",
+  "build": {
+    "appId": "com.geosync-synth.seq-editor",
+    "files": [
+      "app/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "linux": {
+      "executableName": "Ge0syncSeqEditor",
+      "category": "AudioVideo",
+      "target": [
+        "AppImage"
+      ]
+    },
+    "mac": {
+      "category": "public.app-category.music",
+      "icon": "build/icon.icns",
+      "extraResources": [
+        "./node_modules/@electron/remote/**"
+      ],
+      "target": [
+        "pkg"
+      ]
+    },
+    "win": {
+      "extraResources": [
+        "./node_modules/@electron/remote/**"
+      ],
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "publish": null
+  },
+  "scripts": {
+    "postinstall": "electron-builder install-app-deps",
+    "build": "gulp build",
+    "prerelease": "gulp build --env=production",
+    "release": "electron-builder build --arm64",
+    "release_x64": "electron-builder build --x64",
+    "start": "gulp start"
+  },
+  "dependencies": {
+    "@ibm/plex": "^6.2.0",
+    "ajv": "^5.0.0",
+    "fs-jetpack": ">1.0.0",
+    "jquery": "^3.6.4",
+    "load-json-file": "^3.0.0",
+    "midi": "^2.0.0",
+    "x64": "^1.0.0"
+  },
+  "devDependencies": {
+    "@electron/remote": "^2.0.9",
+    "chai": "^4.1.0",
+    "electron": "^24.0.0",
+    "electron-builder": ">19.16.0",
+    "gulp": "^3.9.1",
+    "gulp-batch": "^1.0.5",
+    "gulp-debug": "^3.1.0",
+    "gulp-less": "^3.3.2",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-util": "^3.0.8",
+    "gulp-watch": "^4.3.11",
+    "rollup": "^0.45.2",
+    "source-map-support": "^0.4.15",
+    "spectron": "^3.7.2"
+  },
+  "overrides": {
+    "graceful-fs": "^4.2.10",
+    "electron-chromedriver": "^24.0.0"
+  }
+}

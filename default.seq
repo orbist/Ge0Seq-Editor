@@ -1,0 +1,134 @@
+{
+    "steps": [
+        {
+            "valNote": "24",
+            "valOct": "1",
+            "valLength": "6",
+            "valRest": "0",
+            "valAccent": "0",
+            "valSlide": "1"
+        },
+        {
+            "valNote": "24",
+            "valOct": "1",
+            "valLength": "6",
+            "valRest": "0",
+            "valAccent": "0",
+            "valSlide": "0"
+        },
+        {
+            "valNote": "24",
+            "valOct": "1",
+            "valLength": "6",
+            "valRest": "0",
+            "valAccent": "0",
+            "valSlide": "1"
+        },
+        {
+            "valNote": "24",
+            "valOct": "1",
+            "valLength": "6",
+            "valRest": "0",
+            "valAccent": "0",
+            "valSlide": "0"
+        },
+        {
+            "valNote": "34",
+            "valOct": "0",
+            "valLength": "6",
+            "valRest": "0",
+            "valAccent": "0",
+            "valSlide": "1"
+        },
+        {
+            "valNote": "34",
+            "valOct": "0",
+            "valLength": "6",
+            "valRest": "0",
+            "valAccent": "0",
+            "valSlide": "1"
+        },
+        {
+            "valNote": "34",
+            "valOct": "0",
+            "valLength": "6",
+            "valRest": "0",
+            "valAccent": "0",
+            "valSlide": "1"
+        },
+        {
+            "valNote": "34",
+            "valOct": "0",
+            "valLength": "6",
+            "valRest": "0",
+            "valAccent": "0",
+            "valSlide": "0"
+        },
+        {
+            "valNote": "24",
+            "valOct": "1",
+            "valLength": "6",
+            "valRest": "0",
+            "valAccent": "0",
+            "valSlide": "1"
+        },
+        {
+            "valNote": "24",
+            "valOct": "1",
+            "valLength": "6",
+            "valRest": "0",
+            "valAccent": "0",
+            "valSlide": "1"
+        },
+        {
+            "valNote": "24",
+            "valOct": "1",
+            "valLength": "6",
+            "valRest": "0",
+            "valAccent": "0",
+            "valSlide": "0"
+        },
+        {
+            "valNote": "34",
+            "valOct": "0",
+            "valLength": "6",
+            "valRest": "0",
+            "valAccent": "1",
+            "valSlide": "0"
+        },
+        {
+            "valNote": "34",
+            "valOct": "0",
+            "valLength": "6",
+            "valRest": "0",
+            "valAccent": "0",
+            "valSlide": "0"
+        },
+        {
+            "valNote": "24",
+            "valOct": "1",
+            "valLength": "6",
+            "valRest": "0",
+            "valAccent": "1",
+            "valSlide": "1"
+        },
+        {
+            "valNote": "24",
+            "valOct": "1",
+            "valLength": "6",
+            "valRest": "0",
+            "valAccent": "1",
+            "valSlide": "0"
+        },
+        {
+            "valNote": "34",
+            "valOct": "0",
+            "valLength": "6",
+            "valRest": "0",
+            "valAccent": "0",
+            "valSlide": "0"
+        }
+    ],
+    "slideType": "6",
+    "seqID": "0"
+}
