@@ -1,7 +1,9 @@
 # Ge0Seq-Editor
 Editor for Ge0Seq Sequencer Module
 
-This is the companion application for the Ge0Seq MIDI to CV and Sequencer Module used in the Ge0sync Synth TB-Seq and Destop semi-modular synthesisers.
+https://geosyncsynth.com/
+
+This is the companion application for the Ge0Seq MIDI to CV and Sequencer Module used in the Ge0sync Synth TB-Seq and Destop semi-modular synthesisers.  https://github.com/orbist/Ge0Seq
 
 This editor allows you to upload device settings, create and upload 1-16 step sequences and save/load sequences from the local filesystem.
 
