@@ -7,11 +7,11 @@
  *
  */
 
-const VERSION = "v1.5.0.0"
+const VERSION = "v1.5.0.2"
 const VER_MAJ = 1;
 const VER_MIN = 5;
 const VER_FIX = 0;
-const VER_BLD = 0;
+const VER_BLD = 2;
 
 const numbSteps = 16;
 
