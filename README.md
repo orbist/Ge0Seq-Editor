@@ -16,6 +16,7 @@ Packages are built for :
 * Mac (Apple Mx based = arm64)
 
 See the Users Guide in the docs folder for more information.
+https://github.com/orbist/Ge0Seq-Editor/blob/main/docs/230504-Ge0seq-UserGuide.pdf
 
 # Building the Editor
 
