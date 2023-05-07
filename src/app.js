@@ -7,11 +7,11 @@
  *
  */
 
-const VERSION = "v1.5.0.2"
+const VERSION = "v1.5.0.4"
 const VER_MAJ = 1;
 const VER_MIN = 5;
 const VER_FIX = 0;
-const VER_BLD = 2;
+const VER_BLD = 4;
 
 const numbSteps = 16;
 
@@ -621,12 +621,6 @@ function adaptStepSettings(step, resetFieldValues) {
 			} 
 		}
 	}
-	//console.log("Hide Steps :");
-	//console.log(hideSteps);
-	//console.log("Show Steps :");
-	//console.log(showSteps);
-	//console.log("stepLengthSave : ");
-	//console.log(stepLengthSave);
 }
 
 
@@ -668,9 +662,9 @@ function getDefaultDevSettings() {
     var thisDevSet = {
         channel: 0,
         priority: 0,
-		ppqn: 24,
+		ppqn: 4,
         ppqn_out: 4,
-        gate_delay: 5,
+        gate_delay: 3,
         mod_cc: 1,
         mod_duration: 0,
         clock_duration: 2,
