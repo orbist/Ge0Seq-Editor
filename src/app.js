@@ -7,11 +7,11 @@
  *
  */
 
-const VERSION = "v1.5.0.4"
+const VERSION = "v1.5.4.3"
 const VER_MAJ = 1;
 const VER_MIN = 5;
-const VER_FIX = 0;
-const VER_BLD = 4;
+const VER_FIX = 3;
+const VER_BLD = 2;
 
 const numbSteps = 16;
 
@@ -29,6 +29,8 @@ const SEND_TRIG_DURATION = 11;
 const SEND_CLOCK_DURATION = 12;
 const SEND_MOD_DURATION = 14;
 const TEST_COMMS = 15;
+const SEND_ACCENT_CC = 16;
+const SEND_MIDI_START_ENABLE = 17;
 
 const LAST_STEP_NOTE = 127;
 
@@ -229,6 +231,8 @@ function sendMIDI( event ) {
         messages.push( [ SEND_MOD_DURATION, devSettings.mod_duration ] );
         messages.push( [ SEND_TRIG_DURATION, devSettings.trig_duration ] );
         messages.push( [ SEND_CLOCK_DURATION, devSettings.clock_duration ] );
+		messages.push( [ SEND_ACCENT_CC, devSettings.accent_cc ] );
+		messages.push( [ SEND_MIDI_START_ENABLE, devSettings.midi_enable ] );
         // midi channel last as it reboots device
         messages.push([SEND_MIDICH, devSettings.channel ]);
         
@@ -320,6 +324,8 @@ function updateUIFromSeq() {
         $("#device-settings tr:nth-of-type(7)  input")[0].value = devSettings.mod_duration;
         $("#device-settings tr:nth-of-type(8)  input")[0].value = devSettings.trig_duration;
         $("#device-settings tr:nth-of-type(9)  input")[0].value = devSettings.clock_duration;
+		$("#device-settings tr:nth-of-type(10)  input")[0].value = devSettings.accent_cc;
+	    $("#device-settings tr:nth-of-type(11) select")[0].value = devSettings.midi_enable;
  
 		$("#seq-settings tr:first-of-type select")[0].value = currentSeq.slideType;
 		$("#seq-slot     tr:first-of-type select")[0].value = currentSeq.seqID;
@@ -358,15 +364,17 @@ function updateSeqFromUI() {
 		currentSeq.steps.push(updateSeqFromStep($(value)));
 	});
     
-    devSettings.channel        = $("#device-settings tr:first-of-type   input")[0].value;
-    devSettings.priority       = $("#device-settings tr:nth-of-type(2) select")[0].value;
-    devSettings.mod_cc         = $("#device-settings tr:nth-of-type(3)  input")[0].value;
-	devSettings.ppqn           = $("#device-settings tr:nth-of-type(4) select")[0].value;
-    devSettings.ppqn_out       = $("#device-settings tr:nth-of-type(5) select")[0].value;
-    devSettings.gate_delay     = $("#device-settings tr:nth-of-type(6)  input")[0].value;
-    devSettings.mod_duration   = $("#device-settings tr:nth-of-type(7)  input")[0].value;
-    devSettings.trig_duration  = $("#device-settings tr:nth-of-type(8)  input")[0].value;
-    devSettings.clock_duration = $("#device-settings tr:nth-of-type(9)  input")[0].value;
+    devSettings.channel        = $("#device-settings tr:first-of-type    input")[0].value;
+    devSettings.priority       = $("#device-settings tr:nth-of-type(2)  select")[0].value;
+    devSettings.mod_cc         = $("#device-settings tr:nth-of-type(3)   input")[0].value;
+	devSettings.ppqn           = $("#device-settings tr:nth-of-type(4)  select")[0].value;
+    devSettings.ppqn_out       = $("#device-settings tr:nth-of-type(5)  select")[0].value;
+    devSettings.gate_delay     = $("#device-settings tr:nth-of-type(6)   input")[0].value;
+    devSettings.mod_duration   = $("#device-settings tr:nth-of-type(7)   input")[0].value;
+    devSettings.trig_duration  = $("#device-settings tr:nth-of-type(8)   input")[0].value;
+    devSettings.clock_duration = $("#device-settings tr:nth-of-type(9)   input")[0].value;
+	devSettings.accent_cc      = $("#device-settings tr:nth-of-type(10)  input")[0].value;
+	devSettings.midi_enable    = $("#device-settings tr:nth-of-type(11) select")[0].value;
     
     currentSeq.slideType = $("#seq-settings tr:first-of-type select")[0].value;
     currentSeq.seqID     = $("#seq-slot     tr:first-of-type select")[0].value;
@@ -664,11 +672,13 @@ function getDefaultDevSettings() {
         priority: 0,
 		ppqn: 4,
         ppqn_out: 4,
-        gate_delay: 3,
+        gate_delay: 5,
         mod_cc: 1,
         mod_duration: 0,
         clock_duration: 2,
-        trig_duration: 2
+        trig_duration: 2,
+		accent_cc: 80,
+		midi_enable: 1
     };
     return thisDevSet;
 }
